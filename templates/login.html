@@ -62,7 +62,7 @@ body {
 
 <div class="container">
     <style>
-    input[type=text], select {
+    input[type=text], select, input[type=password] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -93,14 +93,16 @@ body {
     padding: 20px;
     }
     </style>
-      
-    <form id="post-form" method="POST" action="checkview">
+    {% for message in messages %}
+    <b> {{message}} </b>
+    {% endfor %}
+    <form id="" method="POST" action="login">
         {% csrf_token %}
-        <label>Room Name</label>
-        <input type="text" name="room_name" id="room_name" width="100px" />
         <label>Username</label>
         <input type="text" name="username" id="username" width="100px" />
-        <input type="submit" value="Enter Room">
+        <label>Password</label>
+        <input type="password" name="password" id="password" width="100px" />
+        <input type="submit" value="Login">
     </form>
 </div>
 
